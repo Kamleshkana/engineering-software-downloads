@@ -37,6 +37,7 @@
             margin-bottom: 30px;
             cursor: pointer;
         }
+        /* Add animation to the category heading (h2) */
         .category h2 {
             background: linear-gradient(90deg, #4caf50, #81c784);
             color: #fff;
@@ -44,9 +45,23 @@
             border-radius: 8px;
             text-align: center;
             transition: background-color 0.3s;
+            animation: slideIn 0.6s ease-out;
         }
+        /* Hover effect */
         .category h2:hover {
             background-color: #66bb6a;
+            transform: scale(1.05);
+        }
+        /* Animation for the slide-in effect */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
         .subcategory {
             display: none;
