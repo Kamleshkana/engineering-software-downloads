@@ -9,26 +9,34 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff;
-            color: #333;
+            background: url('path/to/your/image.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
         }
         header {
-            background-color: #2c3e50;
-            color: #fff;
+            background: rgba(44, 62, 80, 0.8);
             padding: 20px 10px;
             text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #16a085;
+        }
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .container {
             max-width: 1000px;
-            margin: 20px auto;
+            margin: 40px auto;
             padding: 20px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
         }
-        h1 {
-            color: #ffffff;
-            text-shadow: 1px 1px 2px #000000;
+        .container:hover {
+            transform: translateY(-10px);
         }
         .category {
             margin-bottom: 30px;
@@ -36,44 +44,57 @@
         .category h2 {
             background: linear-gradient(90deg, #4caf50, #81c784);
             color: #fff;
-            padding: 10px;
-            border-radius: 4px;
+            padding: 15px;
+            border-radius: 6px;
             text-align: center;
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .category h2:hover {
+            background: #388e3c;
+            transform: scale(1.05);
         }
         .subcategory {
             display: none;
-            margin-top: 15px;
-        }
-        .subcategory h3 {
             margin-top: 20px;
-            font-size: 1.2em;
         }
         .software-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin: 0;
             padding: 0;
         }
         .software-item {
-            background-color: #e8f5e9;
-            border: 1px solid #c8e6c9;
+            background-color: rgba(72, 179, 104, 0.2);
+            border: 1px solid #66bb6a;
             border-radius: 4px;
             padding: 10px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .software-item:hover {
+            transform: translateY(-5px);
         }
         a {
             display: inline-block;
-            padding: 10px 15px;
+            padding: 12px 18px;
             text-decoration: none;
             color: #fff;
             background-color: #4caf50;
             border-radius: 4px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s ease;
         }
         a:hover {
             background-color: #388e3c;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #fff;
         }
     </style>
     <script>
@@ -105,20 +126,16 @@
             <div class="subcategory" id="hexagon">
                 <h3>ISL</h3>
                 <div class="software-list">
-                    <div class="software-item"><a href="#">ISL (Latest)</a></div>
+                    <div class="software-item"><a href="#">ISL</a></div>
                 </div>
-                <h3>CADWorx</h3>
                 <div class="software-list">
                     <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CADWorx2019.exe')">CADWorx 2019</a></div>
                     <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CADWorx2020.exe')">CADWorx 2020</a></div>
                     <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CADWorx2020R2.exe')">CADWorx 2020 R2</a></div>
                     <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CADWorx2023.exe')">CADWorx 2023</a></div>
-                </div>
-                <h3>CAESAR II</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CAESAR2018.exe')">CAESAR II 2018</a></div>
-                    <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CAESAR2019.exe')">CAESAR II 2019</a></div>
-                    <div class="software-item"><a href="#" onclick="generateKeyAndDownload('CAESARv12.exe')">CAESAR II v.12</a></div>
+                    <div class="software-item"><a href="#">CAESAR II 2018</a></div>
+                    <div class="software-item"><a href="#">CAESAR II 2019</a></div>
+                    <div class="software-item"><a href="#">CAESAR II v.12</a></div>
                 </div>
             </div>
         </div>
@@ -139,28 +156,6 @@
                     <div class="software-item"><a href="#">Navis Manage 2022</a></div>
                     <div class="software-item"><a href="#">Navis Manage 2023</a></div>
                     <div class="software-item"><a href="#">Navis Manage 2024</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2020</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2021</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2022</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2023</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2024</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2020</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2021</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2022</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2023</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2024</a></div>
-                    <div class="software-item"><a href="#">Inventor 2022</a></div>
-                    <div class="software-item"><a href="#">Inventor 2023</a></div>
-                    <div class="software-item"><a href="#">Inventor 2024</a></div>
-                    <div class="software-item"><a href="#">3ds Max 2022</a></div>
-                    <div class="software-item"><a href="#">3ds Max 2023</a></div>
-                    <div class="software-item"><a href="#">3ds Max 2024</a></div>
-                    <div class="software-item"><a href="#">Recap Pro 2022</a></div>
-                    <div class="software-item"><a href="#">Recap Pro 2023</a></div>
-                    <div class="software-item"><a href="#">Recap Pro 2024</a></div>
-                    <div class="software-item"><a href="#">Revit 2022</a></div>
-                    <div class="software-item"><a href="#">Revit 2023</a></div>
-                    <div class="software-item"><a href="#">Revit 2024</a></div>
                 </div>
             </div>
         </div>
@@ -193,5 +188,9 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Kamlesh Narang. All rights reserved.</p>
+    </footer>
 </body>
 </html>
