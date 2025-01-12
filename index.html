@@ -6,69 +6,104 @@
   <title>Engineering Software Downloads</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* General Reset */
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #ece9e6, #ffffff);
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 90%;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     header {
       text-align: center;
-      padding: 20px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 24px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      font-size: 28px;
-      color: #333;
+      font-size: 2rem;
       margin-bottom: 20px;
+      color: #ffda79;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
+
     ul {
       list-style: none;
       padding: 0;
+      margin: 20px 0;
     }
+
     li {
       margin: 15px 0;
-      font-size: 18px;
-    }
-    a {
-      text-decoration: none;
-      color: #4CAF50;
-      font-weight: bold;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       align-items: center;
     }
-    a:hover {
-      color: #2e7d32;
-      text-decoration: underline;
+
+    li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
-    i {
+
+    a {
+      text-decoration: none;
+      color: #ffda79;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    a i {
       margin-right: 10px;
+      font-size: 1.5rem;
     }
+
+    a:hover {
+      color: #ffd43b;
+    }
+
     .footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ddd;
     }
   </style>
 </head>
 <body>
-  <header>
-    Engineering Software Downloads
-  </header>
   <div class="container">
-    <h1>Welcome to Engineering Software Downloads</h1>
+    <header>Engineering Software Downloads</header>
     <ul>
       <li><a href="#"><i class="fas fa-cogs"></i> CADWorx</a></li>
       <li><a href="#"><i class="fas fa-chart-line"></i> CAESAR II</a></li>
