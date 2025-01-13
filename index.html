@@ -11,7 +11,7 @@
             padding: 0;
             background: linear-gradient(135deg, #72c6e4, #6b8de3);
             color: #333;
-            animation: backgroundAnimation 10s infinite alternate;
+            animation: backgroundAnimation 10s infinite;
         }
         header {
             background-color: #2c3e50;
@@ -32,8 +32,7 @@
         h1 {
             color: #ffffff;
             text-shadow: 1px 1px 2px #000000;
-        }
-        .search-bar {
+          .search-bar {
             margin: 20px auto;
             text-align: center;
         }
@@ -53,7 +52,7 @@
             padding: 15px;
             border-radius: 8px;
             text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
             animation: slideIn 0.6s ease-out;
         }
         .category h2:hover {
@@ -96,6 +95,17 @@
         }
         .software-item a:hover {
             color: #4caf50;
+            </style>
+</head>
+<body>
+    <header>
+        <h1>Software Download Links</h1>
+        <p>Search for your required software or browse by categories.</p>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="filterSoftware()" placeholder="Search for software...">
+    </div>
         }
         a {
             display: inline-block;
@@ -104,12 +114,13 @@
             color: #fff;
             background-color: #4caf50;
             border-radius: 4px;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s, transform 0.3s ease;
         }
         a:hover {
             background-color: #388e3c;
             transform: scale(1.1);
         }
+
         #login-container {
             display: flex;
             justify-content: center;
@@ -121,6 +132,7 @@
             top: 0;
             left: 0;
         }
+
         #login-form {
             background-color: #fff;
             padding: 20px;
@@ -128,6 +140,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
+
         #login-form input {
             padding: 10px;
             margin-bottom: 10px;
@@ -135,6 +148,7 @@
             border: 1px solid #ccc;
             width: 200px;
         }
+
         #login-form button {
             padding: 10px 15px;
             background-color: #4caf50;
@@ -144,20 +158,30 @@
             cursor: pointer;
             width: 100%;
         }
+
         #login-form button:hover {
             background-color: #388e3c;
         }
+
+        /* Animation for login screen */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
         @keyframes backgroundAnimation {
             0% { background: linear-gradient(135deg, #72c6e4, #6b8de3); }
-            100% { background: linear-gradient(135deg, #6b8de3, #72c6e4); }
+            50% { background: linear-gradient(135deg, #6b8de3, #72c6e4); }
+            100% { background: linear-gradient(135deg, #72c6e4, #6b8de3); }
         }
         @keyframes slideIn {
-            0% { transform: translateX(-50px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
         @keyframes slideDown {
             0% { transform: translateY(-10px); opacity: 0; }
@@ -181,11 +205,128 @@
     </div>
 
     <div class="container" id="software-container" style="display: none;">
-        <!-- Add your software categories and links here -->
+        <!-- HEXAGON Section -->
+        <div class="category">
+            <h2 onclick="toggleSubcategory('hexagon')">HEXAGON (Image Graphics)</h2>
+            <div class="subcategory" id="hexagon">
+                <h3>ISL</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="https://drive.google.com/uc?export=download&id=1GHa-F4q0keMn6O3HQRKik2u9a9zCvCju">ISL</a></div>
+                </div>
+                <h3>CADWorx</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">CADWorx 2019</a></div>
+                    <div class="software-item"><a href="#">CADWorx 2020</a></div>
+                    <div class="software-item"><a href="#">CADWorx 2020 R2</a></div>
+                    <div class="software-item"><a href="#">CADWorx 2023</a></div>
+                </div>
+                <h3>CAESAR II</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">CAESAR II 2018</a></div>
+                    <div class="software-item"><a href="#">CAESAR II 2019</a></div>
+                    <div class="software-item"><a href="#">CAESAR II v.12</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUTODESK Section -->
+        <div class="category">
+            <h2 onclick="toggleSubcategory('autodesk')">AUTODESK</h2>
+            <div class="subcategory" id="autodesk">
+                <h3>AutoCAD</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">AutoCAD 2019</a></div>
+                    <div class="software-item"><a href="#">AutoCAD 2020</a></div>
+                    <div class="software-item"><a href="#">AutoCAD 2021</a></div>
+                    <div class="software-item"><a href="#">AutoCAD 2022</a></div>
+                    <div class="software-item"><a href="#">AutoCAD 2023</a></div>
+                    <div class="software-item"><a href="#">AutoCAD 2024</a></div>
+                </div>
+                <h3>Navis Manage</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Navis Manage 2020</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2021</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2022</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2023</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2024</a></div>
+                </div>
+                <h3>Plant 3D</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Plant 3D 2020</a></div>
+                    <div class="software-item"><a href="#">Plant 3D 2021</a></div>
+                    <div class="software-item"><a href="#">Plant 3D 2022</a></div>
+                    <div class="software-item"><a href="#">Plant 3D 2023</a></div>
+                    <div class="software-item"><a href="#">Plant 3D 2024</a></div>
+                </div>
+                <h3>Advanced Steel</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Advanced Steel 2020</a></div>
+                    <div class="software-item"><a href="#">Advanced Steel 2021</a></div>
+                    <div class="software-item"><a href="#">Advanced Steel 2022</a></div>
+                    <div class="software-item"><a href="#">Advanced Steel 2023</a></div>
+                    <div class="software-item"><a href="#">Advanced Steel 2024</a></div>
+                </div>
+                <h3>Inventor</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Inventor 2022</a></div>
+                    <div class="software-item"><a href="#">Inventor 2023</a></div>
+                    <div class="software-item"><a href="#">Inventor 2024</a></div>
+                </div>
+                <h3>3ds Max</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">3ds Max 2022</a></div>
+                    <div class="software-item"><a href="#">3ds Max 2023</a></div>
+                    <div class="software-item"><a href="#">3ds Max 2024</a></div>
+                </div>
+                <h3>Revit</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Revit 2022</a></div>
+                    <div class="software-item"><a href="#">Revit 2023</a></div>
+                    <div class="software-item"><a href="#">Revit 2024</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENTLEY Section -->
+        <div class="category">
+            <h2 onclick="toggleSubcategory('bentley')">BENTLEY</h2>
+            <div class="subcategory" id="bentley">
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Staad Pro</a></div>
+                    <div class="software-item"><a href="#">RAM connection</a></div>
+                    <div class="software-item"><a href="#">Bentley Plant Design Work Suite</a></div>
+                    <div class="software-item"><a href="#">RCDC</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER SOFTWARE Section -->
+
+        <div class="category">
+            <h2 onclick="toggleSubcategory('other-software')">OTHER SOFTWARE</h2>
+            <div class="subcategory" id="other-software">
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Verge 3D</a></div>
+                </div>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Bluebeam</a></div>
+                </div>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Tekla Diamond Standard</a></div>
+                </div>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">SolidWorks Premium</a></div>
+                </div>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">SolidWorks Standard</a></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        const correctPassword = 'yourpassword'; // Replace with the actual password
+        const correctPassword = 'yourpassword'; // Replace this with your actual password
 
         function validatePassword() {
             const enteredPassword = document.getElementById('password').value;
@@ -203,7 +344,11 @@
 
         function toggleSubcategory(id) {
             const subcategory = document.getElementById(id);
-            subcategory.style.display = subcategory.style.display === 'block' ? 'none' : 'block';
+            if (subcategory.style.display === "none" || subcategory.style.display === "") {
+                subcategory.style.display = "block";
+            } else {
+                subcategory.style.display = "none";
+            }
         }
     </script>
 </body>
