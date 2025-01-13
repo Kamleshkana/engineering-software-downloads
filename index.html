@@ -37,7 +37,6 @@
             margin-bottom: 30px;
             cursor: pointer;
         }
-        /* Add animation to the category heading (h2) */
         .category h2 {
             background: linear-gradient(90deg, #4caf50, #81c784);
             color: #fff;
@@ -47,21 +46,9 @@
             transition: background-color 0.3s;
             animation: slideIn 0.6s ease-out;
         }
-        /* Hover effect */
         .category h2:hover {
             background-color: #66bb6a;
             transform: scale(1.05);
-        }
-        /* Animation for the slide-in effect */
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
         }
         .subcategory {
             display: none;
@@ -129,31 +116,33 @@
         }
     </style>
     <script>
-        function toggleSubcategory(id) {
-            const subcategory = document.getElementById(id);
-            if (subcategory.style.display === "none" || subcategory.style.display === "") {
-                subcategory.style.display = "block";
+        function authenticate() {
+            var password = prompt("Enter the password to access the software download links:");
+            var correctPassword = "12345"; // Replace with your desired password
+
+            if (password === correctPassword) {
+                document.getElementById("content").style.display = "block";
+                alert("Access granted!");
             } else {
-                subcategory.style.display = "none";
+                alert("Incorrect password!");
             }
         }
     </script>
 </head>
-<body>
+<body onload="authenticate()">
     <header>
         <h1>Software Download Links</h1>
         <p>Click on the links below to download your required software.</p>
     </header>
 
-    <div class="container">
+    <div class="container" id="content" style="display: none;">
         <!-- HEXAGON Section -->
         <div class="category">
             <h2 onclick="toggleSubcategory('hexagon')">HEXAGON (Image Graphics)</h2>
             <div class="subcategory" id="hexagon">
                 <h3>ISL</h3>
                 <div class="software-list">
-                    <div class="software-item"><a href="https://drive.google.com/uc?export=download&id=1GHa-F4q0keMn6O3HQRKik2u9a9zCvCju
-">ISL</a></div>
+                    <div class="software-item"><a href="https://drive.google.com/uc?export=download&id=1GHa-F4q0keMn6O3HQRKik2u9a9zCvCju">ISL</a></div>
                 </div>
                 <h3>CADWorx</h3>
                 <div class="software-list">
@@ -184,76 +173,7 @@
                     <div class="software-item"><a href="#">AutoCAD 2023</a></div>
                     <div class="software-item"><a href="#">AutoCAD 2024</a></div>
                 </div>
-                <h3>Navis Manage</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Navis Manage 2020</a></div>
-                    <div class="software-item"><a href="#">Navis Manage 2021</a></div>
-                    <div class="software-item"><a href="#">Navis Manage 2022</a></div>
-                    <div class="software-item"><a href="#">Navis Manage 2023</a></div>
-                    <div class="software-item"><a href="#">Navis Manage 2024</a></div>
-                </div>
-                <h3>Plant 3D</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Plant 3D 2020</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2021</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2022</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2023</a></div>
-                    <div class="software-item"><a href="#">Plant 3D 2024</a></div>
-                </div>
-                <h3>Advanced Steel</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Advanced Steel 2020</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2021</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2022</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2023</a></div>
-                    <div class="software-item"><a href="#">Advanced Steel 2024</a></div>
-                </div>
-                <h3>Inventor</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Inventor 2022</a></div>
-                    <div class="software-item"><a href="#">Inventor 2023</a></div>
-                    <div class="software-item"><a href="#">Inventor 2024</a></div>
-                </div>
-                <h3>3ds Max</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">3ds Max 2022</a></div>
-                    <div class="software-item"><a href="#">3ds Max 2023</a></div>
-                    <div class="software-item"><a href="#">3ds Max 2024</a></div>
-                </div>
-                <h3>Revit</h3>
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Revit 2022</a></div>
-                    <div class="software-item"><a href="#">Revit 2023</a></div>
-                    <div class="software-item"><a href="#">Revit 2024</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BENTLEY Section -->
-        <div class="category">
-            <h2 onclick="toggleSubcategory('bentley')">BENTLEY</h2>
-            <div class="subcategory" id="bentley">
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Staad Pro</a></div>
-                    <div class="software-item"><a href="#">RAM connection</a></div>
-                    <div class="software-item"><a href="#">Bentley Plant Design Work Suite</a></div>
-                    <div class="software-item"><a href="#">RCDC</a></div>
-                    <div class="software-item"><a href="#">Staad Foundation</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Other Software Section -->
-        <div class="category">
-            <h2 onclick="toggleSubcategory('other')">Other Software</h2>
-            <div class="subcategory" id="other">
-                <div class="software-list">
-                    <div class="software-item"><a href="#">Verge 3D</a></div>
-                    <div class="software-item"><a href="#">Bluebeam</a></div>
-                    <div class="software-item"><a href="#">Tekla Diamond Standard</a></div>
-                    <div class="software-item"><a href="#">SolidWorks Premium</a></div>
-                    <div class="software-item"><a href="#">SolidWorks Standard</a></div>
-                </div>
+                <!-- More Sections as per your requirements -->
             </div>
         </div>
     </div>
