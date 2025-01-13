@@ -50,6 +50,16 @@
             background-color: #66bb6a;
             transform: scale(1.05);
         }
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
         .subcategory {
             display: none;
             margin-top: 15px;
@@ -78,6 +88,8 @@
             padding: 10px;
             text-align: center;
             transition: background-color 0.3s;
+            opacity: 0;  /* Initially hidden */
+            transition: opacity 0.5s ease-in-out;
         }
         .software-item a {
             text-decoration: none;
@@ -116,26 +128,34 @@
         }
     </style>
     <script>
-        function authenticate() {
-            var password = prompt("Enter the password to access the software download links:");
-            var correctPassword = "12345"; // Replace with your desired password
-
-            if (password === correctPassword) {
-                document.getElementById("content").style.display = "block";
-                alert("Access granted!");
+        function toggleSubcategory(id) {
+            const subcategory = document.getElementById(id);
+            const softwareItems = subcategory.querySelectorAll('.software-item');
+            
+            if (subcategory.style.display === "none" || subcategory.style.display === "") {
+                subcategory.style.display = "block";
+                // Reveal software items one by one with a slight delay
+                softwareItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = 1;  // Fade in the item
+                    }, index * 100);  // Delay each item slightly
+                });
             } else {
-                alert("Incorrect password!");
+                subcategory.style.display = "none";
+                softwareItems.forEach(item => {
+                    item.style.opacity = 0;  // Fade out the item
+                });
             }
         }
     </script>
 </head>
-<body onload="authenticate()">
+<body>
     <header>
         <h1>Software Download Links</h1>
         <p>Click on the links below to download your required software.</p>
     </header>
 
-    <div class="container" id="content" style="display: none;">
+    <div class="container">
         <!-- HEXAGON Section -->
         <div class="category">
             <h2 onclick="toggleSubcategory('hexagon')">HEXAGON (Image Graphics)</h2>
@@ -173,7 +193,42 @@
                     <div class="software-item"><a href="#">AutoCAD 2023</a></div>
                     <div class="software-item"><a href="#">AutoCAD 2024</a></div>
                 </div>
-                <!-- More Sections as per your requirements -->
+                <h3>Navis Manage</h3>
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Navis Manage 2020</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2021</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2022</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2023</a></div>
+                    <div class="software-item"><a href="#">Navis Manage 2024</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENTLEY Section -->
+        <div class="category">
+            <h2 onclick="toggleSubcategory('bentley')">BENTLEY</h2>
+            <div class="subcategory" id="bentley">
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Staad Pro</a></div>
+                    <div class="software-item"><a href="#">RAM connection</a></div>
+                    <div class="software-item"><a href="#">Bentley Plant Design Work Suite</a></div>
+                    <div class="software-item"><a href="#">RCDC</a></div>
+                    <div class="software-item"><a href="#">Staad Foundation</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Software Section -->
+        <div class="category">
+            <h2 onclick="toggleSubcategory('other')">Other Software</h2>
+            <div class="subcategory" id="other">
+                <div class="software-list">
+                    <div class="software-item"><a href="#">Verge 3D</a></div>
+                    <div class="software-item"><a href="#">Bluebeam</a></div>
+                    <div class="software-item"><a href="#">Tekla Diamond Standard</a></div>
+                    <div class="software-item"><a href="#">SolidWorks Premium</a></div>
+                    <div class="software-item"><a href="#">SolidWorks Standard</a></div>
+                </div>
             </div>
         </div>
     </div>
